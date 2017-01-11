@@ -6,19 +6,24 @@ myApp.controller("myAppController", ["$scope", function($scope){
     $scope.cities = [
         {
             Name: "New York",
-            Food: "Hot dog"
+            Food: "Hot dog",
+            display: true
         }, {
             Name: "London",
-            Food: "Fish&Chips"
+            Food: "Fish & Chips",
+            display: true
         }, {
             Name: "Paris",
-            Food: "Baguette"
+            Food: "Baguette",
+            display: true
         }, {
             Name: "Tokyo",
-            Food: "Sushi"
+            Food: "Sushi",
+            display: false
         }, {
             Name: "HongKong",
-            Food: "Roast Goose"
+            Food: "Roast Goose",
+            display: true
         }
     ];
 }]);

@@ -7,19 +7,26 @@
     <script src="app\lib\angular.min.js"></script>
     <script src="app\app.js"></script>
 </head>
-<body>
-    <div ng-controller="myAppController">
-        <!-- get message from myAppController which is from scope.message -->
-        <p>{{message}}</p>
 
-        <!-- temporary search will be stored inside ng-model, which then will be used in filter inside ng-repeat -->
-        <input type="text" ng-model="search" placeholder="Type in City/Food name"/>
-        <ul>
-            <!-- interating using ng-repeat -->
-            <!-- sort by order e.g Name, ascending -->
-            <!--     adding minus in front of the name with make it descending -->
-            <li ng-repeat="city in cities | orderBy: 'Name' | filter: search">{{city.Name}} - {{city.Food}}</li>
-        </ul>
+<body>
+    <!-- to sure that external is included, use single quotation in between double quotation or vice versa -->
+    <header ng-include="'header.html'"></header>
+    <div class="content">
+        <div ng-controller="myAppController">
+            <!-- get message from myAppController which is from scope.message -->
+            <p>{{message}}</p>
+
+            <!-- temporary search will be stored inside ng-model, which then will be used in filter inside ng-repeat -->
+            <input type="text" ng-model="search" placeholder="Search by City / Food name" />
+            <ul>
+                <!-- interating using ng-repeat -->
+                <!-- sort by order e.g Name, ascending -->
+                <!--     adding minus in front of the name with make it descending -->
+                <!--  ng-hide or ng-show will display according the state in app.js, display section -->
+                <li ng-repeat="city in cities | orderBy: 'Name' | filter: search" ng-hide="city.display">{{city.Name}} - Famouse Food:  {{city.Food}}</li>
+            </ul>
+        </div>
     </div>
 </body>
+
 </html>
