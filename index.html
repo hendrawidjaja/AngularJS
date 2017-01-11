@@ -12,8 +12,13 @@
         <!-- get message from myAppController which is from scope.message -->
         <p>{{message}}</p>
 
+        <!-- temporary search will be stored inside ng-model, which then will be used in filter inside ng-repeat -->
+        <input type="text" ng-model="search" placeholder="Type in City/Food name"/>
         <ul>
-            <li ng-repeat="city in cities">{{city}}</li>
+            <!-- interating using ng-repeat -->
+            <!-- sort by order e.g Name, ascending -->
+            <!--     adding minus in front of the name with make it descending -->
+            <li ng-repeat="city in cities | orderBy: 'Name' | filter: search">{{city.Name}} - {{city.Food}}</li>
         </ul>
     </div>
 </body>
