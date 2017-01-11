@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 
 <head>
     <title>AngularJS</title>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
     <script src="app\lib\angular.min.js"></script>
+    <script src="app\app.js"></script>
 </head>
+<body>
+    <div ng-controller="myAppController">
+        <!-- get message from myAppController which is from scope.message -->
+        <p>{{message}}</p>
 
-<!-- Don't use ng-init too often -->
-<body ng-init="places=['New York', 'Tokyo', 'Paris', 'London']">
-    <!-- Using ng-repeat to interate in array -->
-    <ul>
-        <li ng-repeat="place in places">{{place}}</li>
-    </ul>
+        <ul>
+            <li ng-repeat="city in cities">{{city}}</li>
+        </ul>
+    </div>
 </body>
 </html>
