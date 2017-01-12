@@ -13,17 +13,21 @@
     <header ng-include="'header.html'"></header>
     <div class="content">
         <div ng-controller="myAppController">
-            <!-- get message from myAppController which is from scope.message -->
-            <p>{{message}}</p>
+            <!-- whenever someone clicks one of the button, the ListItem will be sorted equal to the button order -->
+            <button ng-click="order = 'Name'">Order by City name</button>
+            <button ng-click="order = 'Price'">Order by Price tag</button>
+            <button ng-click="order = 'Food'">Order by Food name</button>
 
             <!-- temporary search will be stored inside ng-model, which then will be used in filter inside ng-repeat -->
             <input type="text" ng-model="search" placeholder="Search by City / Food name" />
             <ul>
-                <!-- interating using ng-repeat -->
-                <!-- sort by order e.g Name, ascending -->
-                <!--     adding minus in front of the name with make it descending -->
-                <!--  ng-hide or ng-show will display according the state in app.js, display section -->
-                <li ng-repeat="city in cities | orderBy: 'Name' | filter: search" ng-hide="city.display">{{city.Name}} - Famouse Food:  {{city.Food}}</li>
+                <!-- interating using ng-repeat to sort by order e.g Name, ascending -->
+                <!-- orderBy got the order from button click above -->
+                <li ng-repeat="city in cities | orderBy: order | filter: search" ng-show="city.display"><h3>{{city.Name}}</h3>
+                    <!-- binding a function that can remove the entire item from the list  -->
+                    <div class="remove" ng-click="removeItem(city)">x</div>
+                    <span>{{city.Food}} ({{city.Price | currency}})</span>
+                </li>
             </ul>
         </div>
     </div>
