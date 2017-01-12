@@ -5,6 +5,20 @@ myApp.controller("myAppController", ["$scope", function($scope){
     $scope.removeItem = function(item) {
         var deleteItem = $scope.cities.indexOf(item); /* get index of item */
         $scope.cities.splice(deleteItem, 1); /* remove the item from the array */
+    },
+    $scope.addItem = function() {
+        /* push all gathered information from input tag field to array */
+        $scope.cities.push({
+            Name: $scope.newItem.name,
+            Food: $scope.newItem.food,
+            Price: parseInt($scope.newItem.price),
+            display: true
+        });
+
+        /* clear input field */
+        $scope.newItem.name = "";
+        $scope.newItem.food = "";
+        $scope.newItem.price = "";
     }
     /* scope object */
     $scope.message = "Hello";

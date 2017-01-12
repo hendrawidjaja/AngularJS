@@ -4,8 +4,20 @@
 <head>
     <title>AngularJS</title>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDO7QrcBlhuT8BcX8GS2LRpBmuct0RanFQ",
+            authDomain: "angularjs-62ed1.firebaseapp.com",
+            databaseURL: "https://angularjs-62ed1.firebaseio.com",
+            storageBucket: "angularjs-62ed1.appspot.com",
+            messagingSenderId: "417079907990"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="app\lib\angular.min.js"></script>
-    <script src="app\app.js"></script>
 </head>
 
 <body>
@@ -23,14 +35,22 @@
             <ul>
                 <!-- interating using ng-repeat to sort by order e.g Name, ascending -->
                 <!-- orderBy got the order from button click above -->
-                <li ng-repeat="city in cities | orderBy: order | filter: search" ng-show="city.display"><h3>{{city.Name}}</h3>
+                <li ng-repeat="city in cities | orderBy: order | filter: search" ng-show="city.display">
+                    <h3>{{city.Name}}</h3>
                     <!-- binding a function that can remove the entire item from the list  -->
                     <div class="remove" ng-click="removeItem(city)">x</div>
                     <span>{{city.Food}} ({{city.Price | currency}})</span>
                 </li>
             </ul>
+
+            <form ng-submit="addItem()">
+                <input type="text" placeholder="City Name" ng-model="newItem.name" />
+                <input type="text" placeholder="Famous Food" ng-model="newItem.food" />
+                <input type="text" placeholder="Price Tag" ng-model="newItem.price" />
+                <input type="submit" value="Add to List" />
+            </form>
         </div>
     </div>
 </body>
-
+<script src="app\app.js"></script>
 </html>
