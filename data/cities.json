@@ -1,0 +1,43 @@
+[{
+	"Name": "New York",
+	"Food": "Hot dog",
+	"Price": 5,
+	"display": true,
+	"flag": "./content/img/united_states_of_america.png"
+}, {
+	"Name": "London",
+	"Food": "Fish & Chips",
+	"Price": 8,
+	"display": true,
+	"flag": "./content/img/united_kingdom.png"
+}, {
+	"Name": "Paris",
+	"Food": "Baguette",
+	"Price": 6,
+	"display": true,
+	"flag": "./content/img/france.png"
+}, {
+	"Name": "Tokyo",
+	"Food": "Sushi",
+	"Price": 12,
+	"display": true,
+	"flag": "./content/img/japan.png"
+}, {
+	"Name": "Hong Kong",
+	"Food": "Roast Goose",
+	"Price": 30,
+	"display": true,
+	"flag": "./content/img/hong_kong.png"
+}, {
+	"Name": "Thailand",
+	"Food": "Tom Yum",
+	"Price": 3,
+	"display": true,
+	"flag": "./content/img/thailand.png"
+}, {
+	"Name": "Indonesia",
+	"Food": "Nasi Goreng",
+	"Price": 2,
+	"display": true,
+	"flag": "./content/img/indonesia.png"
+}]

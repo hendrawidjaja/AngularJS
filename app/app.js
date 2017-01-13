@@ -15,7 +15,8 @@ myApp.config(["$routeProvider", function($routeProvider){
     });
 }]);
 
-myApp.controller("myAppController", ["$scope", function($scope){
+/* function should be declared first here */
+myApp.controller("myAppController", ["$scope", "$http", function($scope, $http){
     var message;
     /* scope object */
     $scope.message = message;
@@ -40,50 +41,15 @@ myApp.controller("myAppController", ["$scope", function($scope){
         $scope.newItem.price = "";
     }
 
-    /* scope object array */
-    $scope.cities = [
-        {
-            Name: "New York",
-            Food: "Hot dog",
-            Price: 5,
-            display: true,
-            flag: "./content/img/united_states_of_america.png"
-        }, {
-            Name: "London",
-            Food: "Fish & Chips",
-            Price: 8,
-            display: true,
-            flag: "./content/img/united_kingdom.png"
-        }, {
-            Name: "Paris",
-            Food: "Baguette",
-            Price: 6,
-            display: true,
-            flag: "./content/img/france.png"
-        }, {
-            Name: "Tokyo",
-            Food: "Sushi",
-            Price: 12,
-            display: true,
-            flag: "./content/img/japan.png"
-        }, {
-            Name: "Hong Kong",
-            Food: "Roast Goose",
-            Price: 30,
-            display: true,
-            flag: "./content/img/hong_kong.png"
-        }, {
-            Name: "Thailand",
-            Food: "Tom Yum",
-            Price: 3,
-            display: true,
-            flag: "./content/img/thailand.png"
-        }, {
-            Name: "Indonesia",
-            Food: "Nasi Goreng",
-            Price: 2,
-            display: true,
-            flag: "./content/img/indonesia.png"
-        }
-    ];
+    /* Simple GET request example with promises */
+    $http({
+      method: "GET",
+      url: "./data/cities.json"
+    }).then(function successCallback(response) {
+        /* this callback will be called asynchronously when the response is available */
+        $scope.cities = response.data;
+      }, function errorCallback(response) {
+        /* called asynchronously if an error occurs or server returns response with an error status. */
+        console.log("Error " + response.status + ": " + response.data)
+      });
 }]);
