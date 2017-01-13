@@ -36,6 +36,7 @@
                 <!-- interating using ng-repeat to sort by order e.g Name, ascending -->
                 <!-- orderBy got the order from button click above -->
                 <li ng-repeat="city in cities | orderBy: order | filter: search" ng-show="city.display">
+                    <img ng-src="{{city.flag}}" ng-show="city.flag">
                     <h3>{{city.Name}}</h3>
                     <!-- binding a function that can remove the entire item from the list  -->
                     <div class="remove" ng-click="removeItem(city)">x</div>
