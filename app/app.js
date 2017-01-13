@@ -1,6 +1,25 @@
-var myApp = angular.module("myApp", []);
+/* dependecies injection should be put inside the square brackets */
+var myApp = angular.module('myApp', ['ngRoute']);
+
+myApp.config(["$routeProvider", function($routeProvider){
+    $routeProvider
+    .when("/home", {
+        templateUrl: "views/home.html"
+    })
+    .when("/directory", {
+        templateUrl: "views/directory.html",
+        controller: "myAppController"
+    })
+    .otherwise({
+        redirectTo: "/home"
+    });
+}]);
 
 myApp.controller("myAppController", ["$scope", function($scope){
+    var message;
+    /* scope object */
+    $scope.message = message;
+
     /* a function to handle clickEvent of remove */
     $scope.removeItem = function(item) {
         var deleteItem = $scope.cities.indexOf(item); /* get index of item */
@@ -20,44 +39,51 @@ myApp.controller("myAppController", ["$scope", function($scope){
         $scope.newItem.food = "";
         $scope.newItem.price = "";
     }
-    /* scope object */
-    $scope.message = "Hello";
+
+    /* scope object array */
     $scope.cities = [
         {
             Name: "New York",
             Food: "Hot dog",
             Price: 5,
-            display: true
+            display: true,
+            flag: "./content/img/united_states_of_america.png"
         }, {
             Name: "London",
             Food: "Fish & Chips",
             Price: 8,
-            display: true
+            display: true,
+            flag: "./content/img/united_kingdom.png"
         }, {
             Name: "Paris",
             Food: "Baguette",
             Price: 6,
-            display: true
+            display: true,
+            flag: "./content/img/france.png"
         }, {
             Name: "Tokyo",
             Food: "Sushi",
             Price: 12,
-            display: true
+            display: true,
+            flag: "./content/img/japan.png"
         }, {
             Name: "Hong Kong",
             Food: "Roast Goose",
             Price: 30,
-            display: true
+            display: true,
+            flag: "./content/img/hong_kong.png"
         }, {
             Name: "Thailand",
             Food: "Tom Yum",
             Price: 3,
-            display: true
+            display: true,
+            flag: "./content/img/thailand.png"
         }, {
             Name: "Indonesia",
             Food: "Nasi Goreng",
             Price: 2,
-            display: true
+            display: true,
+            flag: "./content/img/indonesia.png"
         }
     ];
 }]);
