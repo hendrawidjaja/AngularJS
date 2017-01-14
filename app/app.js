@@ -1,7 +1,11 @@
 /* dependecies injection should be put inside the square brackets */
 var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
-myApp.config(["$routeProvider", function($routeProvider){
+myApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider){
+    /* removing # sign in url*/
+    /* it needs some modification on .htaccess, google it*/
+    $locationProvider.html5Mode(true); /* add <base href="/" /> in index.html */
+
     $routeProvider
     .when("/home", {
         templateUrl: "views/home.html",
