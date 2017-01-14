@@ -18,10 +18,19 @@
         </li>
     </ul>
 
-    <form ng-submit="addItem()">
-        <input type="text" placeholder="City Name" ng-model="newItem.name" />
-        <input type="text" placeholder="Famous Food" ng-model="newItem.food" />
-        <input type="text" placeholder="Price Tag" ng-model="newItem.price" />
-        <input type="submit" value="Add to List" />
+    <form name="listItemForm" ng-submit="addItem()" novalidate>
+        <input type="text" name="city" placeholder="City Name" ng-required="true" ng-model="newItem.name" />
+        <div ng-show="listItemForm.city.$touched && listItemForm.city.$invalid">
+            <p class="validate">Enter a valid City name</p>
+        </div>
+        <input type="text" name="food" placeholder="Famous Food" ng-required="true" ng-model="newItem.food" />
+        <div ng-show="listItemForm.food.$touched && listItemForm.food.$invalid">
+            <p class="validate">Enter a valid Food name</p>
+        </div>
+        <input type="text" name="price" placeholder="Price Tag" ng-required="true" ng-model="newItem.price" />
+        <div ng-show="listItemForm.price.$touched && listItemForm.price.$invalid">
+            <p class="validate">Enter a valid Price tag without currency sign</p>
+        </div>
+        <input type="submit" value="Add to List" ng-disabled="listItemForm.$invalid"/>
     </form>
 </div>

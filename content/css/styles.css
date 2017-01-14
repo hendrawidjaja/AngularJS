@@ -78,7 +78,7 @@ main {
     text-align: center;
 }
 
-.content input {
+.content input, textarea {
     border: 2px solid #ddd;
     border-radius: 10px;
     margin: 20px 0;
@@ -172,5 +172,38 @@ main.ng-enter.ng-enter-active {
     100% {
         opacity: 0;
         transform: scale(0);
+    }
+}
+
+/* form validation */
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    animation: blinkingRed 3s infinite; /* using keyframes to make a blinking effect */
+}
+
+input[disabled="disabled"] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+p.validate {
+    color: red;
+    margin: -15px 0 0 0;
+}
+
+@keyframes blinkingRed {
+    0% {
+        border: 2px solid #FFFFFF;
+    }
+    20% {
+        border: 2px solid #FFCCCC;
+    }
+    40% {
+        border: 2px solid #FF8888;
+    }
+    80% {
+        border: 2px solid #FF4444;
+    }
+    100% {
+        border: 2px solid #FF0000;
     }
 }

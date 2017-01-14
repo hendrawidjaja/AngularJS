@@ -1,0 +1,31 @@
+<!--
+    ng-pristine - when form / input not used yet
+    ng-dirty - when form / input has been used
+
+    ng-untouched - when input has not been touched
+    ng-touched - when input has been touched
+
+    ng-valid - when a form field is valid
+    ng-invalid - when a form field is not valid
+
+    easy of them has a property with $ sign - e.g $dirty
+-->
+<div class="content">
+    <h2>Guestbook</h2>
+    <!-- adding novalidate prevents HTML5 standard to validate this form -->
+    <form name="guestbookForm" novalidate>
+        <input type="text" placeholder="Your Name" name="name" ng-model="guestbook.name" ng-required="true" />
+        <div ng-show="guestbookForm.name.$touched && guestbookForm.name.$invalid">
+            <p class="validate">Enter a valid name</p>
+        </div>
+        <input type="email" placeholder="Your E-Mail address" name="email" ng-model="guestbook.email" ng-required="true" />
+        <div ng-show="guestbookForm.email.$touched && guestbookForm.email.$invalid">
+            <p class="validate">Enter a valid E-Mail address </p>
+        </div>
+        <textarea placeholder="Type your message here..." name="message" ng-model="guestbook.message" ng-required="true"></textarea>
+        <div ng-show="guestbookForm.message.$touched && guestbookForm.message.$invalid">
+            <p class="validate">Enter your message </p>
+        </div>
+        <input type="Submit" value="Send" ng-disabled="guestbookForm.$invalid"/>
+    </form>
+</div>

@@ -11,6 +11,10 @@ myApp.config(["$routeProvider", function($routeProvider){
         templateUrl: "views/directory.html",
         controller: "myAppController"
     })
+    .when("/guestbook", {
+        templateUrl: "views/guestbook.html",
+        controller: "myAppController"
+    })
     .otherwise({
         redirectTo: "/home"
     });
