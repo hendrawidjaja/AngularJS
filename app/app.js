@@ -4,7 +4,8 @@ var myApp = angular.module('myApp', ['ngRoute']);
 myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider
     .when("/home", {
-        templateUrl: "views/home.html"
+        templateUrl: "views/home.html",
+        controller: "myAppController"
     })
     .when("/directory", {
         templateUrl: "views/directory.html",
@@ -52,4 +53,19 @@ myApp.controller("myAppController", ["$scope", "$http", function($scope, $http){
         /* called asynchronously if an error occurs or server returns response with an error status. */
         console.log("Error " + response.status + ": " + response.data)
       });
+}]);
+
+/* directive */
+myApp.directive("randomDirectives", [function(){
+    return {
+        restrict: 'E', /* E - Element, A - Attribute */
+        scope: {
+            cities: "=", /* = sign means binding the data that comes from html */
+            title: "=",
+        },
+        templateUrl: "views/random.html",
+        controller: function($scope) {
+            $scope.random = Math.floor(Math.random() * 7);
+        }
+    };
 }]);

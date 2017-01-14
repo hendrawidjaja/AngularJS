@@ -1,0 +1,12 @@
+<!--  custom html for directive -->
+<div class="random-directive">
+    <h4>{{title}}</h4>
+    <div>
+        <!-- [random] function inherit from myApp.directive -->
+        <img src="{{cities[random].flag}}" alt="Flag" />
+        <h3>{{cities[random].name}}</h3>
+        <span>{{cities[random].food}} ({{cities[random].price | currency}})</span>
+    </div>
+
+    {{message}}
+</div>

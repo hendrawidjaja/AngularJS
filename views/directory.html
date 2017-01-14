@@ -11,10 +11,10 @@
         <!-- orderBy got the order from button click above -->
         <li ng-repeat="city in cities | orderBy: order | filter: search" ng-show="city.display">
             <img ng-src="{{city.flag}}" ng-show="city.flag">
-            <h3>{{city.Name}}</h3>
+            <h3>{{city.name}}</h3>
             <!-- binding a function that can remove the entire item from the list  -->
             <div class="remove" ng-click="removeItem(city)">x</div>
-            <span>{{city.Food}} ({{city.Price | currency}})</span>
+            <span>{{city.food}} ({{city.price | currency}})</span>
         </li>
     </ul>
 
