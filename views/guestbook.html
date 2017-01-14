@@ -13,7 +13,7 @@
 <div class="content">
     <h2>Guestbook</h2>
     <!-- adding novalidate prevents HTML5 standard to validate this form -->
-    <form name="guestbookForm" novalidate>
+    <form name="guestbookForm" ng-submit="sendMessage()" novalidate>
         <input type="text" placeholder="Your Name" name="name" ng-model="guestbook.name" ng-required="true" />
         <div ng-show="guestbookForm.name.$touched && guestbookForm.name.$invalid">
             <p class="validate">Enter a valid name</p>

@@ -13,7 +13,11 @@ myApp.config(["$routeProvider", function($routeProvider){
     })
     .when("/guestbook", {
         templateUrl: "views/guestbook.html",
-        controller: "myAppController"
+        controller: "myAppGuestbookController"
+    })
+    .when("/success", {
+        templateUrl: "views/success.html",
+        controller: "myAppGuestbookController"
     })
     .otherwise({
         redirectTo: "/home"
@@ -25,6 +29,7 @@ myApp.controller("myAppController", ["$scope", "$http", function($scope, $http){
     var message;
     /* scope object */
     $scope.message = message;
+    console.log("orderBy: " + $scope);
 
     /* a function to handle clickEvent of remove */
     $scope.removeItem = function(item) {
@@ -47,6 +52,10 @@ myApp.controller("myAppController", ["$scope", "$http", function($scope, $http){
         $scope.newItem.name = "";
         $scope.newItem.food = "";
         $scope.newItem.price = "";
+
+        /* reset form validation */
+        $scope.listItemForm.$setPristine();
+        $scope.listItemForm.$setUntouched();
     }
 
     /* Simple GET request example with promises */
@@ -61,6 +70,13 @@ myApp.controller("myAppController", ["$scope", "$http", function($scope, $http){
         console.log("Error " + response.status + ": " + response.data)
       });
 }]);
+
+myApp.controller("myAppGuestbookController", ["$scope", "$location",  function ($scope, $location) {
+    $scope.sendMessage = function() {
+        $location.path("/success"); /* Link route to success.html inside views directory */
+    };
+}]);
+
 
 /* directive */
 myApp.directive("randomDirectives", [function(){

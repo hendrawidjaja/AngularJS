@@ -1,15 +1,15 @@
 <div class="content">
     <!-- whenever someone clicks one of the button, the ListItem will be sorted equal to the button order -->
-    <button ng-click="order = 'name'">Order by City name</button>
-    <button ng-click="order = 'price'">Order by Price tag</button>
-    <button ng-click="order = 'food'">Order by Food name</button>
+    <button ng-click="orderButton = 'name'">Order by City name</button>
+    <button ng-click="orderButton = 'price'">Order by Price tag</button>
+    <button ng-click="orderButton = 'food'">Order by Food name</button>
 
     <!-- temporary search will be stored inside ng-model, which then will be used in filter inside ng-repeat -->
-    <input type="text" ng-model="search" placeholder="Search by City / Food name" />
+    <input type="search" ng-model="search" placeholder="Search by City / Food name" aria-label="Search by City / Food"/>
     <ul class="city-list">
         <!-- interating using ng-repeat to sort by order e.g Name, ascending -->
         <!-- orderBy got the order from button click above -->
-        <li ng-repeat="city in cities | orderBy: order | filter: search" ng-show="city.display">
+        <li ng-repeat="city in cities | filter:search | orderBy:orderButton">
             <img ng-src="{{city.flag}}" ng-show="city.flag">
             <h3>{{city.name}}</h3>
             <!-- binding a function that can remove the entire item from the list  -->
@@ -33,4 +33,5 @@
         </div>
         <input type="submit" value="Add to List" ng-disabled="listItemForm.$invalid"/>
     </form>
+
 </div>
