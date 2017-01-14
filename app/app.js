@@ -1,5 +1,5 @@
 /* dependecies injection should be put inside the square brackets */
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate']);
 
 myApp.config(["$routeProvider", function($routeProvider){
     $routeProvider
@@ -27,14 +27,17 @@ myApp.controller("myAppController", ["$scope", "$http", function($scope, $http){
         var deleteItem = $scope.cities.indexOf(item); /* get index of item */
         $scope.cities.splice(deleteItem, 1); /* remove the item from the array */
     },
+
+    /* add an Item to ListItem */
     $scope.addItem = function() {
-        /* push all gathered information from input tag field to array */
-        $scope.cities.push({
-            Name: $scope.newItem.name,
-            Food: $scope.newItem.food,
-            Price: parseInt($scope.newItem.price),
-            display: true
-        });
+
+    /* push all gathered information from input tag field to array */
+    $scope.cities.push({
+        name: $scope.newItem.name,
+        food: $scope.newItem.food,
+        price: parseInt($scope.newItem.price),
+        display: true
+    });
 
         /* clear input field */
         $scope.newItem.name = "";

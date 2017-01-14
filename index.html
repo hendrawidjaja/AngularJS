@@ -7,14 +7,14 @@
     <base href="/" />
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
     <script src="app\lib\angular.min.js"></script>
-    <script src="app\lib\angular-route.min.js"></script>
-    <script src="app\app.js"></script>
-
 </head>
 
 <body>
     <!-- to sure that external is included, use single quotation in between double quotation or vice versa -->
     <header ng-include="'header.html'"></header>
-    <div ng-view></div>
+    <main ng-view></main>
 </body>
+    <script src="app\lib\angular-route.min.js"></script>
+    <script src="app\lib\angular-animate.min.js"></script>
+    <script src="app\app.js"></script>
 </html>

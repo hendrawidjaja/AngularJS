@@ -1,12 +1,12 @@
 <div class="content">
     <!-- whenever someone clicks one of the button, the ListItem will be sorted equal to the button order -->
-    <button ng-click="order = 'Name'">Order by City name</button>
-    <button ng-click="order = 'Price'">Order by Price tag</button>
-    <button ng-click="order = 'Food'">Order by Food name</button>
+    <button ng-click="order = 'name'">Order by City name</button>
+    <button ng-click="order = 'price'">Order by Price tag</button>
+    <button ng-click="order = 'food'">Order by Food name</button>
 
     <!-- temporary search will be stored inside ng-model, which then will be used in filter inside ng-repeat -->
     <input type="text" ng-model="search" placeholder="Search by City / Food name" />
-    <ul>
+    <ul class="city-list">
         <!-- interating using ng-repeat to sort by order e.g Name, ascending -->
         <!-- orderBy got the order from button click above -->
         <li ng-repeat="city in cities | orderBy: order | filter: search" ng-show="city.display">

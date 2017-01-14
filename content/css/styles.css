@@ -44,23 +44,23 @@ main {
 
 .content button, .content input[type="submit"] {
     background: #fff;
-    padding: 8px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 8px;
     cursor: pointer;
     color: #777;
     border: 0;
-    box-shadow: 5px 5px 5px rgba(20, 20, 20, 0.1);
-    font-size: 18px;
+    box-shadow: 4px 4px 4px rgba(20, 20, 20, 0.1);
+    font-size: 16px;
 }
 
 .content ul {
     padding: 0;
     list-style-type: none;
-    margin: 30px 0;
+    margin: 35px 0;
 }
 
 .content li {
-    padding: 15px 0;
+    padding: 20px 0;
     border-top: 1px solid #e2e2e2;
     color: #444;
 }
@@ -100,13 +100,12 @@ main {
 }
 
 .remove {
-    background: #fff;
     border-radius: 20px;
     color: crimson;
     cursor: pointer;
     float: right;
-    font-size: 22px;
-    margin: -7px 0 0 5px;
+    font-size: 20px;
+    margin: -5px 0 0 5px;
 }
 
 .random-directive {
@@ -115,4 +114,63 @@ main {
 
 .random-directive > div img {
     float: none;
+}
+
+/* The starting CSS styles for the enter animation */
+main.ng-enter {
+  transition: 1s linear all;
+  opacity: 0;
+}
+
+/* The finishing CSS styles for the enter animation */
+main.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.city-list li.ng-enter {
+    transition: 0.5s linear all;
+    opacity: 0;
+    transform: translateY(100px);
+    z-index: 5;
+}
+
+.city-list li.ng-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 1;
+}
+
+.city-list li.ng-leave {
+    animation: fadeIn 1s;
+}
+
+.city-list li.ng-leave-active {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 1;
+        transform: scale(100%);
+    }
+    20% {
+        opacity: 0.8;
+        transform: scale(80%);
+    }
+    40% {
+        opacity: 0.6;
+        transform: scale(60%);
+    }
+    60% {
+        opacity: 0.4;
+        transform: scale(40%);
+    }
+    80% {
+        opacity: 0.2;
+        transform: scale(20%);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
 }
