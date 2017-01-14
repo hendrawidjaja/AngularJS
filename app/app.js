@@ -59,6 +59,7 @@ myApp.controller("myAppController", ["$scope", "$http", function($scope, $http){
 myApp.directive("randomDirectives", [function(){
     return {
         restrict: 'E', /* E - Element, A - Attribute */
+        transclude: true, /* this means anything inbetween random-directives tag will be shown by using ng-transclude*/
         scope: {
             cities: "=", /* = sign means binding the data that comes from html */
             title: "=",
@@ -66,6 +67,7 @@ myApp.directive("randomDirectives", [function(){
         templateUrl: "views/random.html",
         controller: function($scope) {
             $scope.random = Math.floor(Math.random() * 7);
-        }
+        },
+        replace: true /* wrapping that random-directives tag with div tag*/
     };
 }]);
